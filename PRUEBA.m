@@ -18,11 +18,4 @@ TargetList = {'7 CMa', ['b']};
 Targets = ImportData(TargetList);
 m = 1;
 [Stab, a, e] = SystemStab(Targets{1}, m);
-
-figure
-colormap gray;
-surf(a, e, Stab' ,'EdgeColor','None', 'facecolor', 'interp');
-view(2);
-xlim([a(1), a(end)]);
-ylim([e(1), e(end)]);
-view(2); 
+GeneratePlot(Stab, a, e)
