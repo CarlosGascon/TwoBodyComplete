@@ -13,10 +13,12 @@ view(2);
 %cbar = colorbar;
 liminf = Minval - 1;
 limsup = 7;
+caxis([liminf limsup])
+
 ticks = round(Minval, 1) : 0.5 : limsup;
 cbar = colorbar('Ticks',[liminf, Minval - 0.5, ticks],...
          'TickLabels',{'NI', 'HU', ticks})
-caxis([liminf limsup])
+
 set(cbar, 'TickLabelInterpreter', 'latex', 'FontSize', 10);
 set(gca,'TickLabelInterpreter','latex');
 xlabel('a [AU]','Interpreter','latex', 'FontSize', 10);

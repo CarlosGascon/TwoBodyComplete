@@ -1,10 +1,16 @@
-function [Stab, a, e] = SystemStab(Target, m)
-% Description:
+function [Stab, a, e, PerStab] = SystemStab(Target, m)
+% Description: The following function evaluates the system's imageable and
+% stable points in a semimajor axis - eccentricity axis. 
 
-% Input:
+% Input:  - Target: Struct array containing the system's exoplanets
+%           information
+%         - m: Additional exoplanet's mass in Jupiter masses
 
-% Output:
-
+% Output: - Stab: Matrix containing the stability time (in log10 years)     
+%           for every grid point. -1 indicates a non-imageable
+%           point, while 0 refers to a Hill unstable point.
+%         - a and e: Semimajor axis and eccentricity vectors respectively
+%         - PerStab: Percentage of stable orbits
 Constants;
 
 Stab = zeros(N1, N2);
@@ -43,6 +49,11 @@ parfor (i = 1 : N1, Ncores)
     Stab(i, :) = Stabcase;
     
 end
+
+ImagPoints = nnz(Stab >= 0);
+StabPoints = nnz(Stab == 7);
+
+PerStab = StabPoints / ImagPoints;
 
 end
 

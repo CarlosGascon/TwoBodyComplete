@@ -22,9 +22,9 @@ m2AU = 6.6846e-12;  %[AU]
 checktime = 365e4;               % Indicate checktime
 dtoutput = checktime / 10;       % Indicate dtoutput
 
-Ncases = 2;
-YearsSim = 1e5;
+Ncases = 1;
+YearsSim = 1e7;
 Nexo = 1;
 Ncores = 1;
-N1 = 10;            % Number of semimajor axis points
-N2 = 10;            % Number of eccentricity points
+N1 = 50;            % Number of semimajor axis points
+N2 = 50;            % Number of eccentricity points
