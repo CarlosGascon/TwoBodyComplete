@@ -41,10 +41,12 @@ for i = 1 : n                                          % Iterate over every plan
     InitialDist(i) = norm(PlanetPos - StarInitPos);    % Calculate and store planet intial distance from star
 end
 
-dt = min([Exo.per]) / 13;                    % Time step a ninth of the minimum orbital period of the system   
-t_in = [dt; YearsSim * 365; checktime; dtoutput];           % Rebound time parameters            
+dt = min([Exo.per]) / 15;                    % Time step a ninth of the minimum orbital period of the system   
+t_in = [dt; YearsSim * 365; checktime; dtoutput];           % Rebound time parameters   
+%mus = mus ./ G;
 
 [t_out, y_out, dy_out] = reboundmexmod(t_in, y_in, dy_in, mus); % Run n body integration with rebound
+
 
 Stabtime = log10(t_out(end) / YearDays);   
 %Stabtime = 1;
