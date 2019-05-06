@@ -45,7 +45,7 @@ dt = min([Exo.per]) / 15;                    % Time step a ninth of the minimum 
 t_in = [dt; YearsSim * 365; checktime; dtoutput];           % Rebound time parameters   
 %mus = mus ./ G;
 
-[t_out, y_out, dy_out] = reboundmexmod(t_in, y_in, dy_in, mus); % Run n body integration with rebound
+[t_out, y_out, dy_out] = reboundmexmod2(t_in, y_in, dy_in, mus); % Run n body integration with rebound
 
 
 Stabtime = log10(t_out(end) / YearDays);   

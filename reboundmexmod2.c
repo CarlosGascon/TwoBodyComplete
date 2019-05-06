@@ -33,7 +33,7 @@
 #define	DY_OUT	plhs[2]
 
 void heartbeat(struct reb_simulation* r);
-int stabilitycheck(struct reb_simulation* r);
+int stabilitycheck(struct reb_simulation* r, double intdist1, double intdist2);
 int i, N, counter, nout;
 double *ts, *t, *y, *dy;
 double timer;
@@ -158,7 +158,7 @@ int stabilitycheck(struct reb_simulation* r, double intdist1, double intdist2) {
 
     double dif= pow(dx * dx + dy * dy + dz * dz, 1.0 / 2);
     double dist1 = pow((p1.x - p0.x) * (p1.x - p0.x) + (p1.y - p0.y) * (p1.y - p0.y) + (p1.z - p0.z) * (p1.z - p0.z), 1.0 / 2);
-    double dist1 = pow((p2.x - p0.x) * (p2.x - p0.x) + (p2.y - p0.y) * (p2.y - p0.y) + (p2.z - p0.z) * (p2.z - p0.z), 1.0 / 2);
+    double dist2 = pow((p2.x - p0.x) * (p2.x - p0.x) + (p2.y - p0.y) * (p2.y - p0.y) + (p2.z - p0.z) * (p2.z - p0.z), 1.0 / 2);
 
    	double inc1 = dist1 / intdist1;
    	double inc2 = dist2 / intdist2;
